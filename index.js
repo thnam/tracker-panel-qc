@@ -12,7 +12,9 @@ fastify.get("/", function (req, reply) {
   reply.send("Hello, world!");
 });
 
-fastify.listen({port: 8081}, function (err, address) {
+fastify.register(require("./routes/panels"));
+
+fastify.listen({port: 8081, host: '0.0.0.0'}, function (err, address) {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
