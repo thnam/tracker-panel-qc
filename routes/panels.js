@@ -1,7 +1,8 @@
-const { listPanels, addPanel } = require("../controllers/panels");
+const { listPanels, getPanel, updatePanel } = require("../controllers/panels");
 
 async function routes(fastify, options) {
   fastify.get("/panels", listPanels);
-  fastify.post("/panels", addPanel);
+  fastify.get("/panels/:id", getPanel);
+  fastify.put("/panels/:id", updatePanel);
 }
 module.exports = routes;
